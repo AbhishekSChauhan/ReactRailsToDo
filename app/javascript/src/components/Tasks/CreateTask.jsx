@@ -14,7 +14,7 @@ const CreateTask = ({ history }) => {
       setLoading(false);
       history.push("/dashboard");
     } catch (error) {
-    //   logger.error(error);
+      logger.error(error);
       setLoading(false);
     }
   };
