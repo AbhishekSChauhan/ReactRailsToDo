@@ -21,6 +21,10 @@ const Dashboard = ({ history }) => {
     }
   };
 
+  const showTask = (slug) => {
+    history.push(`/tasks/${slug}/show`);
+  };
+
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -43,9 +47,10 @@ const Dashboard = ({ history }) => {
 
   return (
     <Container>
-      <h1 className="text-xl leading-5 text-center">
-        You have no tasks assigned 😔
-      </h1>
+      <ListTasks
+        data={tasks}
+        showTask={showTask}
+      />
     </Container>
   );
 };

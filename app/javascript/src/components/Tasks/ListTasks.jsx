@@ -1,9 +1,14 @@
-import React from 'react'
-import Table from './Table'
-const ListTasks = ({data}) => {
-    return (
-        <Table data={data} />
-    )
-}
+import React from "react";
+import Table from "./Table";
 
-export default ListTasks
+const ListTasks = ({ data, destroyTask, updateTask, showTask }) => {
+  return (
+    <Table
+      data={data}
+     
+      showTask={showTask}
+    />
+  );
+};
+
+export default ListTasks;
