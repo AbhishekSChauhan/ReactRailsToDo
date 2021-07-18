@@ -3,6 +3,8 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Dashboard from "components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import ShowTask from "components/Tasks/ShowTask";
+import EditTask from "components/Tasks/EditTask";
+
 import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import PageLoader from "components/PageLoader";
@@ -30,6 +32,7 @@ const App = () => {
     <Router>
       <ToastContainer />
       <Switch>
+      <Route exact path="/tasks/:slug/edit" component={EditTask} />
       <Route exact path="/tasks/:slug/show" component={ShowTask} />
       <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />

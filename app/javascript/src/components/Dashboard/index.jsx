@@ -25,6 +25,10 @@ const Dashboard = ({ history }) => {
     history.push(`/tasks/${slug}/show`);
   };
 
+  const updateTask = (slug) => {
+    history.push(`/tasks/${slug}/edit`);
+  };
+
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -50,6 +54,7 @@ const Dashboard = ({ history }) => {
       <ListTasks
         data={tasks}
         showTask={showTask}
+        updateTask={updateTask}
       />
     </Container>
   );
