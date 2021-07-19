@@ -23,19 +23,19 @@ const TableRow = ({ data, destroyTask, updateTask, showTask }) => {
           <td className="px-6 py-4 text-sm font-medium leading-5 text-right cursor-pointer">
             <a
               className="text-indigo-600 hover:text-indigo-900"
-              onClick={() => updateTask(rowData.id)}
+              onClick={() => updateTask(rowData.slug)}
             >
               Edit
             </a>
           </td>
-          {/* <td className="px-6 py-4 text-sm font-medium leading-5 text-right cursor-pointer">
+          <td className="px-6 py-4 text-sm font-medium leading-5 text-right cursor-pointer">
             <a
-              className="text-bb-red text-opacity-70 hover:text-opacity-100"
+              className="text-red-500 hover:text-red-700"
               onClick={() => destroyTask(rowData.slug)}
             >
               Delete
             </a>
-          </td> */}
+          </td>
         </tr>
       ))}
     </tbody>

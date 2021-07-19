@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { isNil, isEmpty, either } from "ramda";
+import { Link } from "react-router-dom";
 
 import Container from "components/Container";
 import ListTasks from "components/Tasks/ListTasks";
@@ -21,12 +22,21 @@ const Dashboard = ({ history }) => {
     }
   };
 
-  const showTask = (slug) => {
-    history.push(`/tasks/${slug}/show`);
+  const destroyTask = async (slug) => {
+    try {
+      await tasksApi.destroy(slug);
+      await fetchTasks();
+    } catch (error) {
+      logger.error(error);
+    }
   };
 
   const updateTask = (slug) => {
     history.push(`/tasks/${slug}/edit`);
+  };
+
+  const showTask = (slug) => {
+    history.push(`/tasks/${slug}/show`);
   };
 
   useEffect(() => {
@@ -41,13 +51,15 @@ const Dashboard = ({ history }) => {
     );
   }
 
-  if (!either(isNil, isEmpty)(tasks)) {
-    return (
-      <Container>
-        <ListTasks data={tasks} />
-      </Container>
-    );
-  }
+  // if (!either(isNil, isEmpty)(tasks)) {
+  //   return (
+  //     <Container>
+  //       <h1 className="text-xl leading-5 text-center">
+  //         You have no tasks assigned 😔
+  //       </h1>
+  //     </Container>
+  //   );
+  // }
 
   return (
     <Container>
@@ -55,7 +67,9 @@ const Dashboard = ({ history }) => {
         data={tasks}
         showTask={showTask}
         updateTask={updateTask}
+        destroyTask={destroyTask}
       />
+      <Link to="/tasks/create">Create</Link>
     </Container>
   );
 };

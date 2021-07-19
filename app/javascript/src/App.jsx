@@ -32,12 +32,10 @@ const App = () => {
     <Router>
       <ToastContainer />
       <Switch>
-      <Route exact path="/tasks/:slug/edit" component={EditTask} />
-      <Route exact path="/tasks/:slug/show" component={ShowTask} />
-      <Route exact path="/tasks/create" component={CreateTask} />
+        <Route exact path="/tasks/:slug/edit" component={EditTask} />
+        <Route exact path="/tasks/:slug/show" component={ShowTask} />
+        <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/" render={() => <div>Home</div>} />
-        <Route exact path="/about" render={() => <div>About</div>} />
       </Switch>
     </Router>
   );
