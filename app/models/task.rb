@@ -1,8 +1,8 @@
 class Task < ApplicationRecord
+    belongs_to :user
 
     validates :title, presence: true, length: { maximum: 50 }
     validates :slug, uniqueness: true
-    validate :slug_not_changed
 
     before_create :set_slug
 
@@ -18,10 +18,6 @@ class Task < ApplicationRecord
       end
     end
 
-    def slug_not_changed
-      if slug_changed? && self.persisted?
-        errors.add(:slug, t('task.slug.immutable'))
-      end
-    end
+
 
 end

@@ -30,7 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  successfully_created: "Task was successfully created!"
+  authorization:
+      denied: "Access denied. You are not authorized to perform this action."
   task:
     slug:
       immutable: "is immutable!"
